@@ -20,6 +20,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/5.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
+# For production, use environment variable: SECRET_KEY = os.environ.get('SECRET_KEY')
 SECRET_KEY = 'django-insecure-=&(1r*%3l#vr$3z%l4@2zwg1_fz*s!a9hl4d(dqdrcw9x5$eet'
 
 # SECURITY WARNING: don't run with debug turned on in production!
@@ -128,9 +129,10 @@ STATIC_URL = 'static/'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 # REST Framework configuration
+# NOTE: For production, implement proper authentication and replace AllowAny with appropriate permissions
 REST_FRAMEWORK = {
     'DEFAULT_PERMISSION_CLASSES': [
-        'rest_framework.permissions.AllowAny',
+        'rest_framework.permissions.AllowAny',  # For development only
     ],
     'DEFAULT_RENDERER_CLASSES': [
         'rest_framework.renderers.JSONRenderer',

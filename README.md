@@ -26,7 +26,7 @@ dj-react/
 - **django-cors-headers 4.9.0** - CORS configuration
 
 ### Frontend
-- **React 18** - UI library
+- **React 19** - UI library
 - **TypeScript** - Type-safe JavaScript
 - **Vite** - Fast build tool
 - **TailwindCSS** - Utility-first CSS framework
@@ -107,6 +107,28 @@ The backend is configured to allow requests from:
 - **API Communication**: Frontend fetches data from Django REST API
 - **CORS Enabled**: Configured for seamless frontend-backend communication
 - **Development Ready**: Hot reload for both frontend and backend
+
+## 🔒 Security Notes
+
+**Important**: This setup is configured for development purposes. For production deployment:
+
+1. **SECRET_KEY**: Move the Django secret key to an environment variable
+   ```python
+   SECRET_KEY = os.environ.get('SECRET_KEY')
+   ```
+
+2. **DEBUG**: Set `DEBUG = False` in production
+
+3. **ALLOWED_HOSTS**: Configure properly for your domain
+   ```python
+   ALLOWED_HOSTS = ['yourdomain.com', 'www.yourdomain.com']
+   ```
+
+4. **API Permissions**: Replace `AllowAny` with appropriate authentication and permission classes
+
+5. **CORS**: Update `CORS_ALLOWED_ORIGINS` to include only your production frontend URL
+
+6. **Database**: Use a production database (PostgreSQL, MySQL) instead of SQLite
 
 ## 🧪 Development
 
